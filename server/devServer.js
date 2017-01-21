@@ -1,31 +1,15 @@
-var express = require('express');
-var webpack = require('webpack');
-var path = require('path');
-var fs = require('fs');
+import express from 'express';
+import webpack from 'webpack';
+// import webpackConfig from '../config/webpack.config.dev';
+import webpackConfig from '../webpack.config.dev';
+import path from 'path';
+import fs from 'fs';
+import open from 'open';
 
-var port = 3000;
-var app = express();
+const port = 3000;
+const app = express();
 
-var webpackConfig = {
-    entry: [
-        'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
-        './src/index'
-    ],
-    output: {
-        path: __dirname + '/dist', // Note: Physical files are only output by the production build task `npm run build`.
-        publicPath: '/',
-        filename: 'bundle.js'
-    },
-    devServer: {
-        contentBase: './src'
-    },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
-    ]
-};
-
-var compiler = webpack(webpackConfig);
+const compiler = webpack(webpackConfig);
 
 app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
@@ -50,7 +34,6 @@ app.listen(port, function(err) {
             console.log('Running inside of Docker.  Check \'$ docker-machine ip\' for ip, and docker-compose.yml setup for port info.');
         }
         else {
-            var open = require('open');
             open('http://localhost:'+port);
         }
     }

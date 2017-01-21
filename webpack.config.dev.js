@@ -1,7 +1,7 @@
-var webpack = require('webpack');
-// var path = require('path');
+import webpack from 'webpack';
+import path from 'path';
 
-module.exports = {
+export default {
     entry: [
         'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
         './src/index'
@@ -18,5 +18,11 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
-    ]
+    ],
+    module: {
+        loaders: [
+            {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
+            {test: /(\.css)$/, loaders: ['style', 'css']}
+        ]
+    }
 };
