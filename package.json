@@ -1,0 +1,19 @@
+{
+  "name": "node-docker-webpack-starter",
+  "version": "1.0.0",
+  "description": "Boilerplate for node app using webpack and optional docker setup. Setup for dev and prod.",
+  "scripts": {
+    "start": "node server/devServer.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "open": "0.0.5",
+    "webpack": "^1.14.0",
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-hot-middleware": "^2.15.0"
+  },
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
