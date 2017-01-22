@@ -13,5 +13,3 @@ const testText = "Change text here to check live reload when saved.";
 /* ------------------------------------------- */
 
 document.getElementById("livereloadfeedback").innerHTML = testText;
-
-console.log("here");
