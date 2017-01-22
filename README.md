@@ -10,7 +10,7 @@ Development environment will hot-reload within Docker container (or seperate if 
 [Docker](https://www.docker.com/products/docker#/mac) ^1.12.5
 *(optional)*
 
-**Create new project from the starter template, install dependencies, and run.** *(creates copy without .git, node_modules, etc.)*
+**Create new project from the starter template, install dependencies, and run.**
 ```$xslt
 $ npm run create /PATH/TO/LOCATION/my-project-name
 $ cd /PATH/TO/LOCATION/my-project-name
@@ -24,4 +24,6 @@ $ docker-compose up
 ```
 
 **Generate production build to /dist folder and launch index.html in Express**
-
+```$xslt
+$ npm run build
+```
