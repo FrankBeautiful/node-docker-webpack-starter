@@ -1,6 +1,7 @@
 # node-docker-webpack-starter
 Boilerplate for a node application using webpack and optional docker setup.
-Development environment will hot-reload within Docker container (or seperate if just running 'npm start' locally).
+
+Development environment will hot-reload whether within Docker container (using '$ docker-compose up'), or without using docker container (using '$ npm start').
 
 ## Getting Started:
 #### Prerequisites:
@@ -12,14 +13,20 @@ Development environment will hot-reload within Docker container (or seperate if 
 
 **Create new project from the starter template, install dependencies, and run.**
 ```$xslt
-$ npm run create /PATH/TO/LOCATION/my-project-name
+$ npm run createproj /PATH/TO/LOCATION/my-project-name
 $ cd /PATH/TO/LOCATION/my-project-name
 $ npm install
 $ npm start
 ```
 
-**Run in Docker container** (development mode)
+**Run outside of docker container** (normal node project development mode)
 ```$xslt
+$ npm start
+```
+
+**Run in Docker container** (optional development mode)
+```$xslt
+$ npm install
 $ docker-compose up
 ```
 
