@@ -11,12 +11,11 @@ Development environment will hot-reload whether within Docker container (using '
 [Docker](https://www.docker.com/products/docker#/mac) ^1.12.5
 *(optional)*
 
-**Create new project from the starter template, install dependencies, and run.**
+**Create new project from the starter template and install dependencies.**
 ```$xslt
 $ npm run createproj /PATH/TO/LOCATION/my-project-name
 $ cd /PATH/TO/LOCATION/my-project-name
 $ npm install
-$ npm start
 ```
 
 **Run outside of docker container** (normal node project development mode)
@@ -26,7 +25,6 @@ $ npm start
 
 **Run in Docker container** (optional development mode)
 ```$xslt
-$ npm install
 $ docker-compose up
 ```
 
