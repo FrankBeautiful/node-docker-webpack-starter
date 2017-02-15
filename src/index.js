@@ -1,4 +1,4 @@
-import './styles/styles.css';
+import './styles/styles.scss';
 
 if(!document.getElementById("livereloadfeedback")) {
     let x = document.createElement("div");

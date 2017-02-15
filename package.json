@@ -9,7 +9,8 @@
     "build:html": "babel-node scripts/buildHtml.js",
     "prebuild": "npm-run-all clean-dist build:html",
     "build": "babel-node scripts/build.js",
-    "postbuild": "babel-node server/distServer.js",
+    "serve-dist": "babel-node server/distServer.js",
+    "build-and-serve": "npm-run-all build serve-dist",
     "createproj": "babel-node scripts/createNewStarter.js"
   },
   "author": "Bruce MacFarlane <bruce@bmacfarlane.com",
@@ -22,15 +23,17 @@
     "cheerio": "^0.22.0",
     "colors": "^1.1.2",
     "css-loader": "^0.26.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "^0.9.0",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "file-loader": "^0.10.0",
+    "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.1",
     "open": "0.0.5",
     "rimraf": "^2.5.4",
+    "sass-loader": "^6.0.0",
     "style-loader": "^0.13.1",
-    "webpack": "^1.14.0",
-    "webpack-dev-middleware": "^1.9.0",
-    "webpack-hot-middleware": "^2.15.0"
+    "webpack": "^2.2.1",
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-hot-middleware": "^2.16.1"
   },
   "dependencies": {
     "compression": "^1.6.2",

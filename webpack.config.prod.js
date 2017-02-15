@@ -7,9 +7,7 @@ const GLOBALS = {
 };
 
 export default {
-    debug: true,
     devtool: 'source-map',
-    noInfo: false,
     entry: ['./src/index'],
     target: 'web',
     output: {
@@ -17,20 +15,52 @@ export default {
         publicPath: '/',
         filename: 'bundle.js'
     },
-    devServer: {
-        contentBase: './dist'
-    },
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin(GLOBALS),
         new ExtractTextPlugin('styles.css'),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            compress: {
+                warnings: true
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        })
     ],
     module: {
-        loaders: [
-            {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
-            {test: /(\.css)$/, loader: ExtractTextPlugin.extract("css?sourceMap")}
+        rules: [
+            {
+                test: /\.js$/,
+                include: path.join(__dirname, "src"),
+                use: [
+                    "babel-loader"
+                ]
+            },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true,
+                                minimize: true,
+                                discardComments: {
+                                    removeAll: true
+                                }
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                    ]
+                })
+            }
         ]
     }
 };

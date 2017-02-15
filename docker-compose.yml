@@ -4,7 +4,7 @@ web:
     NODE_ENV: development
   volumes:
     - .:/home/app/src
-    #- /home/app/src/node_modules
+    - /home/app/src/node_modules
   ports:
     - "80:3000"
   command: ['npm', 'start']
