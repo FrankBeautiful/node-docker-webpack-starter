@@ -1,4 +1,5 @@
-
+// TODO: Remove 'createNewStarter.js' from newly generated project
+// TODO: In 'package.json' change "name" value to project title entered
 
 import {exec} from 'child_process';
 
